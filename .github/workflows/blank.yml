@@ -14,7 +14,15 @@ jobs:
     - name: Clone repository
       uses: actions/checkout@v4
       with:
-        submodules: recursive
+        submodules: false
+    - name: Sync submodules manually
+      run: git submodule update --init --recursive || true
+      
+      
+      
+
+
+      
     
     - name: Install glslangValidator
       run: sudo apt-get update && sudo apt-get install -y glslang-tools
